@@ -1,4 +1,6 @@
 import * as express from 'express';
+import errorMiddleware from './middlewares/error.middleware';
+import LoginRoute from './routes/login.route';
 
 class App {
   public app: express.Express;
@@ -8,7 +10,6 @@ class App {
 
     this.config();
 
-    // Não remover essa rota
     this.app.get('/', (req, res) => res.json({ ok: true }));
   }
 
@@ -22,6 +23,8 @@ class App {
 
     this.app.use(express.json());
     this.app.use(accessControl);
+    this.app.use('/login', new LoginRoute().route);
+    this.app.use(errorMiddleware);
   }
 
   public start(PORT: string | number):void {
@@ -31,5 +34,4 @@ class App {
 
 export { App };
 
-// A execução dos testes de cobertura depende dessa exportação
 export const { app } = new App();
