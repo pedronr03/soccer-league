@@ -13,7 +13,6 @@ class LoginService {
     const user = await this.loginRepository.getByEmail(data.email);
     if (!user) throw new CustomError(401, 'UNAUTHORIZED', 'Incorrect email or password');
     const validation = bcrypt.compareSync(data.password, user.password);
-    console.log(data.password, user.password, validation);
     if (!validation) throw new CustomError(401, 'UNAUTHORIZED', 'Incorrect email or password');
     const token = createAccessToken(user.id);
     return token;
