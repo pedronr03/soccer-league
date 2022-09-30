@@ -1,4 +1,3 @@
-import 'express-async-errors';
 import { App } from './app';
 import 'dotenv/config';
 

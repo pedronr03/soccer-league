@@ -20,7 +20,7 @@ class LoginService {
 
   public async validate(id: number): Promise<string> {
     const user = await this.loginRepository.getById(id);
-    if (!user) throw new CustomError(401, 'NOT_FOUND', 'User not found');
+    if (!user) throw new CustomError(404, 'NOT_FOUND', 'User not found');
     return user.role;
   }
 }

@@ -1,3 +1,4 @@
+import 'express-async-errors';
 import * as express from 'express';
 import errorMiddleware from './middlewares/error.middleware';
 import loginRoute from './routes/login.route';

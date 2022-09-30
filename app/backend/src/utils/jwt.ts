@@ -16,5 +16,5 @@ export const createAccessToken = (id: number) => {
 export const validateAccessToken = (token: string) => {
   verify(token, JWT_SECRET);
   const decodedPayload = decode(token);
-  return decodedPayload || null;
+  return decodedPayload;
 };
