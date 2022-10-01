@@ -4,7 +4,7 @@ class MatchEntity {
   homeTeamGoals: number;
   awayTeam: number;
   awayTeamGoals: number;
-  inProgress: number;
+  inProgress: boolean;
 }
 
 export default MatchEntity;
