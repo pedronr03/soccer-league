@@ -1,8 +1,8 @@
-import { NextFunction, Request, Response } from 'express';
+import { RequestHandler } from 'express';
 import CustomError from '../errors/CustomError';
 import loginSchema from '../schemas/login.schema';
 
-const loginValidate = (req: Request, _res: Response, next: NextFunction) => {
+const loginValidate: RequestHandler = (req, _res, next) => {
   const { error } = loginSchema.validate(req.body);
   if (error) throw new CustomError(400, 'BAD_REQUEST', 'All fields must be filled');
   next();

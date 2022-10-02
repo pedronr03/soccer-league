@@ -1,9 +1,9 @@
 import httpStatusCode from 'http-status-codes';
-import { NextFunction, Request, Response } from 'express';
+import { ErrorRequestHandler } from 'express';
 import { JsonWebTokenError } from 'jsonwebtoken';
 import CustomError from '../errors/CustomError';
 
-const errorMiddleware = (err: Error, _req: Request, res: Response, _next: NextFunction) => {
+const errorMiddleware: ErrorRequestHandler = (err, _req, res, _next) => {
   console.error(err);
 
   if (err instanceof CustomError) {
