@@ -15,7 +15,7 @@ const errorMiddleware: ErrorRequestHandler = (err, _req, res, _next) => {
 
   if (err instanceof JsonWebTokenError) {
     return res.status(httpStatusCode.UNAUTHORIZED).json({
-      message: 'Invalid token',
+      message: 'Token must be a valid token',
       code: 'UNAUTHORIZED',
     });
   }

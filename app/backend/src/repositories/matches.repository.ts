@@ -9,12 +9,7 @@ class MatchesRepository {
   ) {}
 
   public async getById(id: number) {
-    return this.match.findOne({
-      where: { id },
-      include: [
-        { model: Team, as: 'teamHome' },
-        { model: Team, as: 'teamAway' }],
-    });
+    return this.match.findOne({ where: { id } });
   }
 
   public async getAll() {
