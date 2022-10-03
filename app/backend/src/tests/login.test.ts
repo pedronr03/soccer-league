@@ -133,7 +133,7 @@ describe('login route test.', () => {
   describe('/login/receive', () => {
 
     const errortoken = {
-      message: 'Invalid token',
+      message: 'Token must be a valid token',
       code: 'UNAUTHORIZED',
     };
 
