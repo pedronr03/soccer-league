@@ -8,6 +8,10 @@ class LeaderboardService {
   public async getByType(teamType: 'home' | 'away') {
     return this.leadeboardRepository.getByType(teamType);
   }
+
+  public async getAll() {
+    return this.leadeboardRepository.getAll();
+  }
 }
 
 export default LeaderboardService;
