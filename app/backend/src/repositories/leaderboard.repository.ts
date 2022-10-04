@@ -1,5 +1,5 @@
 import { QueryTypes } from 'sequelize';
-import { InitialLeaderboardTeam, LeaderboardTeam } from '../types/Leaderboard';
+import { LeaderboardTeam } from '../types/Leaderboard';
 import Match from '../database/models/Match';
 import { homeQuery, awayQuery } from './queries/leaderboard.query';
 import { mergeLeaderboard, sortLeaderboard } from '../utils/leaderboard';
@@ -12,7 +12,7 @@ class LeaderboardRepository {
   public async getByType(teamType: 'home' | 'away') {
     const query = teamType === 'home' ? homeQuery : awayQuery;
     const leaderboard = await this.match.sequelize
-      ?.query(query, { raw: true, type: QueryTypes.SELECT }) as InitialLeaderboardTeam[];
+      ?.query(query, { raw: true, type: QueryTypes.SELECT }) as LeaderboardTeam[];
     return leaderboard as LeaderboardTeam[];
   }
 

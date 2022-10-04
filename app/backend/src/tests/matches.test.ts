@@ -96,28 +96,6 @@ describe('matches route test', () => {
 
     })
 
-    describe('when the payload is invalid.', () => {
-
-      before(() => {
-        sinon.stub(jwt, 'validateAccessToken').returns({ id: 1 });
-      });
-  
-      after(() => {
-        (jwt.validateAccessToken as sinon.SinonStub).restore();
-      });
-
-      it('returns an error.', async () => {
-        const response = await chai.request(app)
-          .post('/matches')
-          .set({ Authorization: 'valid_token' })
-          .send();
-        expect(response.body).to.have.property('message');
-        expect(response.body).to.have.property('code');
-        expect(response.status).to.be.equal(httpStatusCode.BAD_REQUEST);
-      });
-
-    })
-
     describe('when the payload is valid.', () => {
 
       const payload = {
@@ -222,19 +200,6 @@ describe('matches route test', () => {
   });
 
   describe('/:id - PATCH', () => {
-
-    describe('when the payload is invalid.', () => {
-
-      it('returns an error.', async () => {
-        const response = await chai.request(app)
-          .patch('/matches/' + 1)
-          .send();
-        expect(response.body).to.have.property('message');
-        expect(response.body).to.have.property('code');
-        expect(response.status).to.be.equal(httpStatusCode.BAD_REQUEST);
-      });
-
-    })
 
     describe('when the payload is valid.', () => {
 
