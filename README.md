@@ -29,5 +29,6 @@ To run this project, you will need to fill the .env file with the following envi
 - [Sinon](https://sinonjs.org/)
 - [JWT Auth](https://jwt.io/)
 - [Sequelize](https://sequelize.org/)
+- [MySQL](https://www.mysql.com/)
 ### Developed by:
 - [Pedro Reis](https://www.linkedin.com/in/pedroreisalves/)
