@@ -18,6 +18,7 @@ npm run test:browser
 ### Additional informations:
 To run this project, you will need to fill the .env file with the following environment variables:
 ### Built with:
+- [Docker](https://www.docker.com/)
 - [Node.js](https://nodejs.org/en/)
 - [React](https://pt-br.reactjs.org/)
 - [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
